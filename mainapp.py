@@ -19,7 +19,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix, classification_report
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.cluster import KMeans
+
 from sklearn.neighbors import KNeighborsClassifier
 
 # utils
@@ -89,7 +89,7 @@ if size_mb > 500:
 # -------------------------
 # Top‑level tabs
 # -------------------------
-obs_tab, prep_tab, emb_tab, ml_tab, explore_tab, team_tab = st.tabs(
+obs_tab, prep_tab, emb_tab, ml_tab, explore_tab = st.tabs(
     ["Observations", "Preprocessing", "Embeddings", "Machine learning", "Exploration"]
 )
 
