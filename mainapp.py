@@ -85,33 +85,12 @@ st.toast(f"Loaded file ~{size_mb:.1f} MB", icon="📦")
 if size_mb > 500:
     st.warning("This file is >500MB. Consider backed mode or using PCA/HVG features for ML.")
 
-def render_about(compact: bool = True):
-    st.markdown("""
-**BioML Explorer** — Streamlit app for scRNA-seq:
-• Upload `.h5ad` → QC/normalize → PCA/UMAP → Clustering → Markers/DEG → ML → Export  
-• Optional: Enrichment (GO/KEGG), ssGSEA, TF activity.
-
-**Author:** Panos Kouris  
-**University project:** TL 2025  
-**Contact:** panoskouris@example.com
-    """)
-    if not compact:
-        import platform, scanpy as sc, anndata, numpy as np, pandas as pd, streamlit as stlib
-        st.markdown(f"""
-**Env:** Python {platform.python_version()} • Streamlit {stlib.__version__} • Scanpy {sc.__version__} • AnnData {anndata.__version__} • NumPy {np.__version__} • Pandas {pd.__version__}  
-**Notes:** Works best with normalized/log1p data. Avoid using UMAP as features for ML.  
-**Repo:** _add link here_
-        """)
-
-# call it right after `st.set_page_config(...)`, before any upload logic:
-with st.sidebar.expander("About", expanded=False):
-    render_about(compact=True)
 
 # -------------------------
 # Top‑level tabs
 # -------------------------
 obs_tab, prep_tab, emb_tab, ml_tab, explore_tab, team_tab = st.tabs(
-    ["Observations", "Preprocessing", "Embeddings", "Machine learning", "Exploration", "About"]
+    ["Observations", "Preprocessing", "Embeddings", "Machine learning", "Exploration"]
 )
 
 
@@ -763,18 +742,3 @@ with explore_tab:
                                 )
                     except Exception as e:
                         st.exception(e)
-# Team Tab
-
-with team_tab:
-    st.header("About")
-    st.write("Panos Kouris — data ingestion, ML, UI")
-    st.subheader("Repository")
-    st.write("GitHub: https://github.com/<org>/<repo>")
-    st.subheader("Contributions")
-    st.write("Short paragraph per member on implemented parts.")
-# -------------------------
-# Footer
-# -------------------------
-st.caption(
-    "Notes: Raw‑gene ML can be memory heavy; prefer HVGs/PCA for speed. Backed mode is read‑only and limits preprocessing. Add scikit‑learn/plotly/streamlit to your environment if missing."
-)
