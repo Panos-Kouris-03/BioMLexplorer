@@ -1,0 +1,26 @@
+# requirements.txt (example pins)
+streamlit
+plotly
+
+scanpy
+anndata
+numpy
+scipy
+pandas
+h5py
+
+numba
+llvmlite
+umap-learn
+pynndescent
+
+scikit-misc
+scikit-learn
+joblib
+threadpoolctl
+
+igraph
+leidenalg
+
+gseapy
+decoupler

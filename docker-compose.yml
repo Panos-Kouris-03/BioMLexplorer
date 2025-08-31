@@ -1,0 +1,7 @@
+services:
+  bioml:
+    build: .
+    image: bioml:latest
+    command: streamlit run mainapp.py --server.port=8501 --server.address=0.0.0.0
+    ports: ["8501:8501"]
+    volumes: ["./data:/data"]

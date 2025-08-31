@@ -1,0 +1,11 @@
+# .streamlit/config.toml
+[theme]
+base="dark"
+primaryColor="#7bd389"
+backgroundColor="#0f1115"
+textColor="#f2f2f2"
+font="sans serif"
+
+[server]
+runOnSave=true
+headless=true
