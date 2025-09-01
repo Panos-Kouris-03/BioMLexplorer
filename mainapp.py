@@ -396,7 +396,7 @@ with ml_tab:
             st.error("Disable memory-light (backed) mode to run clustering.")
             st.stop()
 
-        if method == "K-Means":
+        if method == "KMeans":
             from sklearn.cluster import KMeans, MiniBatchKMeans
 
             k = st.slider("k (clusters)", 2, 40, 10)
